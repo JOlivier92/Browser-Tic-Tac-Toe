@@ -28,17 +28,18 @@ class View {
 
     if (this.game.isOver()) {
       this.$el.off("click");
-      this.$el.addClass("over");
 
       let winner = this.game.winner();
-      // const $figcaption = $(<"figcaption">);
+      const $figcaption = $("<figcaption>");
       if (winner) {
-        // $figcaption.html("winner")
+        $figcaption.html(`Congrats, ${winner}, you won.`)
       } else {
-        // $figcaption.html("draw")
+        $figcaption.html("It's a draw :(")
       }
+      this.$el.append($figcaption);
     }
   }
+
 
   setupBoard() {
     const $ul = $("<ul>");
